@@ -33,7 +33,7 @@ window.addEventListener('load', async () => {
 
   const TOKEN = getCookie('PP-PAGE-TOKEN');
   const ID = getCookie('PP-PAGE-ID');
-  const MONITORSTOCKURL = 'http://api.peepeespace.com/quant/monitorstock/';
+  const MONITORSTOCKURL = 'https://api.peepeespace.com/quant/monitorstock/';
   const OPTIONS = {
     headers: {'Authorization': `Token ${TOKEN}`}
   };
