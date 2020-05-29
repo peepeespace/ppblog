@@ -1,15 +1,16 @@
 const express = require('express'); // express앱 임포트하기
+const path = require('path');
 
 // 서버 포트 & 호스트 정의내려주기
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
 const app = express(); // 앱 시작
-app.set('views', `${__dirname}/templates`); // HTML 파일 연결
+app.set('views', `${__dirname}/dist`); // HTML 파일 연결
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-app.use(express.static(`${__dirname}/assets`)); // CSS 파일 연결
+app.use(express.static(`${__dirname}/dist`)); // CSS 파일 연결
 
 // 앱을 포트와 호스트와 연결하여 작동 시작하기
 app.listen(PORT, HOST);
@@ -27,9 +28,16 @@ console.log(`서버가 http://${HOST}:${PORT} 에서 작동하고 있습니다.`
 
 // 메인 페이지: https://www.buzzz.co.kr/
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('login.html');
 });
 
+app.get('/tool', (req, res) => {
+  res.render('tool.html');
+});
+
+// app.get('/blog', (req, res) => {
+//   res.render('blog_detail.html');
+// });
 // // 마켓시그널 페이지: https://www.buzzz.co.kr/marketsignal/
 // app.get('/marketsignal', (req, res) => {
 //   res.render('market_signal.html');
