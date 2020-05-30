@@ -1,9 +1,61 @@
 import '../css/tool.css';
 import '../fontawesome/css/fontawesome.min.css';
 import Axios from 'axios';
-// import Highcharts from 'highcharts';
+import Highcharts from 'highcharts/highstock';
+import Exporting from 'highcharts/modules/exporting';
 
-// require('highcharts/modules/exporting')(Highcharts);
+Exporting(Highcharts);
+
+Highcharts.setOptions({
+  lang: {
+    months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    shortMonths: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    weekdays: ['월', '화', '수', '목', '금', '토', '일'],
+  }
+});
+
+const drawPortHistoryChart = (data) => {
+  let seriesData = [[Date.UTC(2020, 0, 1), 100], [Date.UTC(2020, 0, 2), 105], [Date.UTC(2020, 0, 3), 97]]
+  Highcharts.stockChart('chart-area', {
+    chart: {
+      backgroundColor: '#f7f7f7',
+      style: { fontFamily: 'NotoSans', },
+    },
+    rangeSelector: {
+      inputEnabled: false,
+      buttonTheme: { visibility: 'hidden', },
+      labelStyle: { visibility: 'hidden', },
+    },
+    navigator : { enabled : false, },
+    credits: { enabled: false, },
+    exporting: { enabled: false, },
+    scrollbar: { enabled: false, },
+    title: { text: '', },
+    series: [{
+      name: '수익률',
+      data: seriesData,
+      type: 'spline',
+      tooltip: {
+          valueDecimals: 2,
+      },
+      color: {
+        linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1,
+        },
+        stops: [
+            [0, '#ff9cf3'],
+            [0.5, '#ffaa6e'],
+            [1, '#866bff'],
+        ],
+      },
+    },],
+  });
+};
+
+drawPortHistoryChart();
 
 const getCookie = (key) => {
   const name = `${key}=`;
