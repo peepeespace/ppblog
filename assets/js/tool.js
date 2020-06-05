@@ -165,8 +165,8 @@ window.addEventListener('load', async () => {
     const userSpecificURL = formatString(`{0}?user={1}`, [PORTHISTORYURL, ID])
     const getRes = await Axios.get(userSpecificURL, OPTIONS);
     const returnData = getRes.data.results;
-    console.log(returnData);
-
+  
+    const records = [];
     const portfolio = {};
     const totalProfitHist = [];
     const totalProfitHistPct = [0];
@@ -174,16 +174,16 @@ window.addEventListener('load', async () => {
     const yieldCurve = [];
     const dateList = [];
     let chartData = [];
-
+  
     for (let history of returnData) {
-        console.log(history);
         let date = history.date;
         let stockCode = history.traded_stock;
         let action = history.action;
         let actionAmount = history.amount;
         let stockPrice = history.price;
         let avgCost = 0;
-
+        records.push([date, stockCode, action, actionAmount, stockPrice]);
+  
         if (!(stockCode in portfolio)) {
             portfolio[stockCode] = {
                 'stock_cnt': 0,
@@ -195,7 +195,7 @@ window.addEventListener('load', async () => {
                 'profit_hist_pct': []
             };
         }
-        if (action == 'buy') {
+        if ((action == 'buy') || (action == '매수')) {
             portfolio[stockCode]['stock_cnt'] += actionAmount;
             portfolio[stockCode]['total_amt'] += actionAmount * stockPrice;
             if (portfolio[stockCode]['total_amt'] > portfolio[stockCode]['max_inv_amt']) {
@@ -204,7 +204,7 @@ window.addEventListener('load', async () => {
             avgCost = (portfolio[stockCode]['stock_cnt'] == 0) ? 0 : portfolio[stockCode]['total_amt'] / portfolio[stockCode]['stock_cnt'];
             portfolio[stockCode]['avg_cost'] = avgCost;
             portfolio[stockCode]['trade_hist'].push(-1 * actionAmount * stockPrice);
-        } else {
+        } else if ((action == 'sell') || (action == '매도')) {
             let profit = (actionAmount * stockPrice) - (actionAmount * portfolio[stockCode]['avg_cost']);
             portfolio[stockCode]['profit_hist'].push(profit);
             portfolio[stockCode]['profit_hist_pct'].push(profit / portfolio[stockCode]['max_inv_amt']);
@@ -221,11 +221,19 @@ window.addEventListener('load', async () => {
             }
         }
     }
-
+  
     totalProfitHist.reduce((prev, curr, i) => { return cumProfitHist[i] = prev + curr; }, 0);
     totalProfitHistPct.reduce((prev, curr, i) => { return yieldCurve[i] = ((i == 0) ? (1 + prev) : prev) * (1 + curr); }, 0);
     chartData = cumProfitHist.map((item, i) => { return [dateList[i], item]; });
-    return [portfolio, totalProfitHist, totalProfitHistPct, cumProfitHist, yieldCurve, chartData];
+    // console.log(returnData);
+    // console.log(records);
+    // console.log(portfolio);
+    // console.log(totalProfitHist);
+    // console.log(totalProfitHistPct);
+    // console.log(cumProfitHist);
+    // console.log(yieldCurve);
+    // console.log(chartData);
+    return [records, portfolio, totalProfitHist, totalProfitHistPct, cumProfitHist, yieldCurve, chartData];
   };
 
   // prepare page on page load
