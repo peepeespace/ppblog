@@ -161,6 +161,22 @@ form input[type="submit"] {
     z-index: 0;
 }
 
+.history {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    text-align: right;
+}
+
+.show-more {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #4564ff;
+}
+
+.show-more:hover {
+    color: #758cff;
+}
+
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
     article section {

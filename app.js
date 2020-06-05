@@ -35,6 +35,10 @@ app.get('/tool', (req, res) => {
   res.render('tool.html');
 });
 
+app.get('/history', (req, res) => {
+  res.render('history.html');
+});
+
 // app.get('/blog', (req, res) => {
 //   res.render('blog_detail.html');
 // });

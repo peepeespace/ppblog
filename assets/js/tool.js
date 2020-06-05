@@ -1,5 +1,4 @@
 import '../css/tool.css';
-import '../fontawesome/css/fontawesome.min.css';
 import Axios from 'axios';
 import Highcharts from 'highcharts/highstock';
 import Exporting from 'highcharts/modules/exporting';
@@ -14,8 +13,8 @@ Highcharts.setOptions({
   }
 });
 
-const drawPortHistoryChart = (data) => {
-  let seriesData = [[Date.UTC(2020, 0, 1), 100], [Date.UTC(2020, 0, 2), 105], [Date.UTC(2020, 0, 3), 97]]
+const drawPortHistoryChart = (seriesData) => {
+  // let seriesData = [[Date.UTC(2020, 0, 1), 100], [Date.UTC(2020, 0, 2), 105], [Date.UTC(2020, 0, 3), 97]]
   Highcharts.stockChart('chart-area', {
     chart: {
       backgroundColor: '#f7f7f7',
@@ -32,7 +31,7 @@ const drawPortHistoryChart = (data) => {
     scrollbar: { enabled: false, },
     title: { text: '', },
     series: [{
-      name: '수익률',
+      name: '수익',
       data: seriesData,
       type: 'spline',
       tooltip: {
@@ -54,8 +53,6 @@ const drawPortHistoryChart = (data) => {
     },],
   });
 };
-
-drawPortHistoryChart();
 
 const getCookie = (key) => {
   const name = `${key}=`;
@@ -86,6 +83,7 @@ window.addEventListener('load', async () => {
   const TOKEN = getCookie('PP-PAGE-TOKEN');
   const ID = getCookie('PP-PAGE-ID');
   const MONITORSTOCKURL = 'https://api.peepeespace.com/quant/monitorstock/';
+  const PORTHISTORYURL = 'https://api.peepeespace.com/quant/porthistory/';
   const OPTIONS = {
     headers: {'Authorization': `Token ${TOKEN}`}
   };
@@ -163,6 +161,73 @@ window.addEventListener('load', async () => {
     await Axios.put(dataSpecificURL, jsonData, OPTIONS);
   };
 
+  const getPortHistoryData = async () => {
+    const userSpecificURL = formatString(`{0}?user={1}`, [PORTHISTORYURL, ID])
+    const getRes = await Axios.get(userSpecificURL, OPTIONS);
+    const returnData = getRes.data.results;
+    console.log(returnData);
+
+    const portfolio = {};
+    const totalProfitHist = [];
+    const totalProfitHistPct = [0];
+    const cumProfitHist = [];
+    const yieldCurve = [];
+    const dateList = [];
+    let chartData = [];
+
+    for (let history of returnData) {
+        console.log(history);
+        let date = history.date;
+        let stockCode = history.traded_stock;
+        let action = history.action;
+        let actionAmount = history.amount;
+        let stockPrice = history.price;
+        let avgCost = 0;
+
+        if (!(stockCode in portfolio)) {
+            portfolio[stockCode] = {
+                'stock_cnt': 0,
+                'total_amt': 0,
+                'max_inv_amt': 0,
+                'avg_cost': 0,
+                'trade_hist': [],
+                'profit_hist': [],
+                'profit_hist_pct': []
+            };
+        }
+        if (action == 'buy') {
+            portfolio[stockCode]['stock_cnt'] += actionAmount;
+            portfolio[stockCode]['total_amt'] += actionAmount * stockPrice;
+            if (portfolio[stockCode]['total_amt'] > portfolio[stockCode]['max_inv_amt']) {
+                portfolio[stockCode]['max_inv_amt'] = portfolio[stockCode]['total_amt'];
+            }
+            avgCost = (portfolio[stockCode]['stock_cnt'] == 0) ? 0 : portfolio[stockCode]['total_amt'] / portfolio[stockCode]['stock_cnt'];
+            portfolio[stockCode]['avg_cost'] = avgCost;
+            portfolio[stockCode]['trade_hist'].push(-1 * actionAmount * stockPrice);
+        } else {
+            let profit = (actionAmount * stockPrice) - (actionAmount * portfolio[stockCode]['avg_cost']);
+            portfolio[stockCode]['profit_hist'].push(profit);
+            portfolio[stockCode]['profit_hist_pct'].push(profit / portfolio[stockCode]['max_inv_amt']);
+            totalProfitHist.push(profit);
+            totalProfitHistPct.push(profit / portfolio[stockCode]['max_inv_amt'])
+            dateList.push(Date.UTC(date.slice(0, 4), date.slice(4, 6), date.slice(6)));
+            portfolio[stockCode]['stock_cnt'] -= actionAmount;
+            portfolio[stockCode]['total_amt'] -= actionAmount * stockPrice;
+            avgCost = (portfolio[stockCode]['stock_cnt'] == 0) ? 0 : portfolio[stockCode]['total_amt'] / portfolio[stockCode]['stock_cnt'];
+            portfolio[stockCode]['avg_cost'] = avgCost;
+            portfolio[stockCode]['trade_hist'].push(actionAmount * stockPrice);
+            if (portfolio[stockCode]['stock_cnt'] == 0) {
+                portfolio[stockCode]['total_amt'] = 0;
+            }
+        }
+    }
+
+    totalProfitHist.reduce((prev, curr, i) => { return cumProfitHist[i] = prev + curr; }, 0);
+    totalProfitHistPct.reduce((prev, curr, i) => { return yieldCurve[i] = ((i == 0) ? (1 + prev) : prev) * (1 + curr); }, 0);
+    chartData = cumProfitHist.map((item, i) => { return [dateList[i], item]; });
+    return [portfolio, totalProfitHist, totalProfitHistPct, cumProfitHist, yieldCurve, chartData];
+  };
+
   // prepare page on page load
   const codeListData = await getCodeListData();
   if (typeof codeListData != 'undefined') {
@@ -232,104 +297,6 @@ window.addEventListener('load', async () => {
     }
   });
 
+  const portHistoryData = await getPortHistoryData();
+  drawPortHistoryChart(portHistoryData.slice(-1)[0]);
 });
-
-// const drawTextFreqDonutChart = () => {
-//   // 차트 부분 보이도록 하기
-//   const container = document.getElementById('chart-area');
-//   container.style.display = 'block';
-
-//   const chart = new Highcharts.Chart({
-//     chart: {
-//       renderTo: 'chart-area',
-//       backgroundColor: '#f7f7f7',
-//       plotBackgroundColor: '#f7f7f7',
-//       plotBorderWidth: null,
-//       plotShadow: false,
-//       type: 'pie',
-//     },
-//     title: {
-//       text: '',
-//       style: {
-//         color: '#3F3F3F',
-//         fontSize: '18px',
-//         fontWeight: 'bold',
-//       },
-//     },
-//     subtitle: {
-//       text: '',
-//       style: {
-//         display: 'none',
-//       },
-//     },
-//     exporting: {
-//       enabled: false,
-//     },
-//     credits: {
-//       enabled: false,
-//     },
-//     tooltip: {
-//       // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
-//       pointFormat: '{series.name}: <b>{point.y}</b>',
-//     },
-//     plotOptions: {
-//       pie: {
-//         allowPointSelect: true,
-//         cursor: 'pointer',
-//         innerSize: '60%',
-//         dataLabels: {
-//           enabled: true,
-//           format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-//           style: {
-//             color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-//           },
-//         },
-//       },
-//     },
-//     series: [{
-//       name: '단어 빈도수',
-//       colorByPoint: true,
-//       // data: freqData,
-//       data: [{
-//         name: 'Chrome',
-//         y: 61.41,
-//         sliced: true,
-//         selected: true,
-//       }, {
-//         name: 'Internet Explorer',
-//         y: 11.84,
-//       }, {
-//         name: 'Firefox',
-//         y: 10.85,
-//       }, {
-//         name: 'Edge',
-//         y: 4.67,
-//       }, {
-//         name: 'Safari',
-//         y: 4.18,
-//       }, {
-//         name: 'Sogou Explorer',
-//         y: 1.64,
-//       }, {
-//         name: 'Opera',
-//         y: 1.6,
-//       }, {
-//         name: 'QQ',
-//         y: 1.2,
-//       }, {
-//         name: 'Other',
-//         y: 2.61,
-//       }],
-//     }],
-//     // using
-//     function() { // on complete
-//       const xpos = '50%';
-//       const ypos = '53%';
-//       const circleradius = 102;
-//       // Render the circle
-//       chart.renderer.circle(xpos, ypos, circleradius).attr({
-//         fill: '#27314f',
-//       }).add();
-//     },
-//   });
-// };

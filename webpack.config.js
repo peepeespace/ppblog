@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: ['@babel/polyfill', './assets/js/index.js'],
-        tool: ['@babel/polyfill', './assets/js/tool.js']
+        tool: ['@babel/polyfill', './assets/js/tool.js'],
+        history: ['@babel/polyfill', './assets/js/history.js']
     },
     devServer: {
         contentBase: './dist'
@@ -46,6 +47,11 @@ module.exports = {
       new HtmlWebpackPlugin({
         filename: 'tool.html',
         template: './templates/tool.html',
+        inject: false
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'history.html',
+        template: './templates/history.html',
         inject: false
       })
     ]
