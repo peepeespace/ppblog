@@ -216,7 +216,7 @@ const getPortHistoryData = async () => {
 
   totalProfitHist.reduce((prev, curr, i) => { return cumProfitHist[i] = prev + curr; }, 0);
   totalProfitHistPct.reduce((prev, curr, i) => { return yieldCurve[i] = ((i == 0) ? (1 + prev) : prev) * (1 + curr); }, 0);
-  chartData = cumProfitHist.map((item, i) => { return [dateList[i], item]; });
+  chartData = totalProfitHist.map((item, i) => { return [dateList[i], item]; });
   // console.log(returnData);
   // console.log(records);
   // console.log(portfolio);
