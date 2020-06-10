@@ -212,7 +212,7 @@ window.addEventListener('load', async () => {
             totalProfitHistPct.push(profit / portfolio[stockCode]['max_inv_amt'])
             dateList.push(Date.UTC(date.slice(0, 4), date.slice(4, 6), date.slice(6)));
             portfolio[stockCode]['stock_cnt'] -= actionAmount;
-            portfolio[stockCode]['total_amt'] -= actionAmount * stockPrice;
+            portfolio[stockCode]['total_amt'] -= actionAmount * portfolio[stockCode]['avg_cost'];
             avgCost = (portfolio[stockCode]['stock_cnt'] == 0) ? 0 : portfolio[stockCode]['total_amt'] / portfolio[stockCode]['stock_cnt'];
             portfolio[stockCode]['avg_cost'] = avgCost;
             portfolio[stockCode]['trade_hist'].push(actionAmount * stockPrice);
@@ -224,7 +224,7 @@ window.addEventListener('load', async () => {
   
     totalProfitHist.reduce((prev, curr, i) => { return cumProfitHist[i] = prev + curr; }, 0);
     totalProfitHistPct.reduce((prev, curr, i) => { return yieldCurve[i] = ((i == 0) ? (1 + prev) : prev) * (1 + curr); }, 0);
-    chartData = totalProfitHist.map((item, i) => { return [dateList[i], item]; });
+    chartData = cumProfitHist.map((item, i) => { return [dateList[i], item]; });
     // console.log(returnData);
     // console.log(records);
     // console.log(portfolio);
@@ -235,7 +235,6 @@ window.addEventListener('load', async () => {
     // console.log(chartData);
     return [records, portfolio, totalProfitHist, totalProfitHistPct, cumProfitHist, yieldCurve, chartData];
   };
-
   // prepare page on page load
   const codeListData = await getCodeListData();
   if (typeof codeListData != 'undefined') {
