@@ -83,8 +83,8 @@ const TOKEN = getCookie('PP-PAGE-TOKEN');
 const ID = getCookie('PP-PAGE-ID');
 const MONITORSTOCKURL = 'https://api.peepeespace.com/quant/monitorstock/';
 const PORTHISTORYURL = 'https://api.peepeespace.com/quant/porthistory/';
-const CODELISTURL = 'http://api.blended.kr/codelist/all';
-const STOCKDATAURL = 'http://api.blended.kr/adj_close/{0}';
+const CODELISTURL = 'https://api.blended.kr/codelist/all';
+const STOCKDATAURL = 'https://api.blended.kr/adj_close/{0}';
 const OPTIONS = {
   headers: {'Authorization': `Token ${TOKEN}`}
 };
