@@ -1,0 +1,62 @@
+:root {
+    --background: #fafafa;
+    --border: #dedede;
+    --text: #333333;
+    --text-light: #6e6e6e;
+    --logo-shadow: #cfe3ff;
+    --purple: #6c5ce7;
+    --green: #00cec9;
+    --pink: #fd79a8;
+    --orange: #383123;
+    --shade-text-pink: #ff7675;
+    --main-font: 'Noto Sans KR', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 16px이 100%, 62.5%는 10px */
+}
+
+body {
+    color: var(--text);
+    font-family: var(--main-font);
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+::-moz-selection {
+    color: var(--shade-text-pink);
+    background: var(--orange);
+}
+  
+::selection {
+    color: var(--shade-text-pink);
+    background: var(--orange);
+}
+
+  
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+}
+  
+@media only screen and (min-width: 961px) and (max-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}

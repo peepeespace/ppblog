@@ -135,6 +135,26 @@ form input[type="submit"] {
     font-size: 1.5rem;
     font-weight: 800;
     color: #4d4d4d;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.name-change {
+    position: absolute;
+    right: 0;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    border: 1px solid #6b6b6b;
+    color: #6b6b6b;
+    padding: 0.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.name-change:hover {
+    color: #9c9c9c;
+    border: 1px solid #9c9c9c;
 }
 
 .tag {
@@ -147,12 +167,26 @@ form input[type="submit"] {
     margin: 1rem 0;
     background-color: #e0e0e0;
     color: #4564ff;
+    position: relative;
+}
+
+.tag > span {
+    position: absolute;
+    right: 0;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    color: #4d4d4d;
+    cursor: pointer;
+}
+
+.tag > span:hover {
+    font-weight: bold;
 }
 
 #monitorstocks p {
     font-size: 1.2rem;
     text-align: center;
-    color: #e0e0e0;
+    color: #6b6b6b;
 }
 
 .chart-area {

@@ -1,11 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {
         index: ['@babel/polyfill', './assets/js/index.js'],
         tool: ['@babel/polyfill', './assets/js/tool.js'],
-        history: ['@babel/polyfill', './assets/js/history.js']
+        history: ['@babel/polyfill', './assets/js/history.js'],
+        blog: ['@babel/polyfill', './assets/js/blog.js']
     },
     devServer: {
         contentBase: './dist'
@@ -19,7 +23,11 @@ module.exports = {
       rules: [
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          use: [
+            // 'style-loader',
+            MiniCssExtractPlugin.loader,
+            'css-loader'
+          ]
         },
         {
             test: /\.js$/,
@@ -38,6 +46,12 @@ module.exports = {
         }
       ]
     },
+    optimization: {
+      minimizer: [
+        new OptimizeCssAssetsPlugin(),
+        new TerserPlugin()
+      ]
+    },
     plugins: [
       new HtmlWebpackPlugin({
           filename: 'login.html',
@@ -53,6 +67,12 @@ module.exports = {
         filename: 'history.html',
         template: './templates/history.html',
         inject: false
-      })
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'blog.html',
+        template: './templates/blog.html',
+        inject: false
+      }),
+      new MiniCssExtractPlugin({filename: '[name].min.css'})
     ]
   };

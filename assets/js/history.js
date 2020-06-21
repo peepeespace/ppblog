@@ -202,7 +202,7 @@ const getPortHistoryData = async () => {
           portfolio[stockCode]['profit_hist_pct'].push(profit / portfolio[stockCode]['max_inv_amt']);
           totalProfitHist.push(profit);
           totalProfitHistPct.push(profit / portfolio[stockCode]['max_inv_amt'])
-          dateList.push(Date.UTC(date.slice(0, 4), date.slice(4, 6), date.slice(6)));
+          dateList.push(Date.UTC(date.slice(0, 4), Number(date.slice(4, 6))-1, date.slice(6)));
           portfolio[stockCode]['stock_cnt'] -= actionAmount;
           portfolio[stockCode]['total_amt'] -= actionAmount * portfolio[stockCode]['avg_cost'];
           avgCost = (portfolio[stockCode]['stock_cnt'] == 0) ? 0 : portfolio[stockCode]['total_amt'] / portfolio[stockCode]['stock_cnt'];
