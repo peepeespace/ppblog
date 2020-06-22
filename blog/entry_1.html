@@ -15,7 +15,7 @@
     <li><a href="#tuto-1">HTML의 기본 태그 설명</a></li>
     <li><a href="#tuto-2">링크와 이미지를 다루는 방법</a></li>
     <li><a href="#tuto-3">CSS의 시작</a></li>
-    <li>텍스트와 박스 모델</li>
+    <li><a href="#tuto-4">텍스트와 박스 모델</a></li>
     <li>플렉스박스(flexbox)를 활용한 레이아웃</li>
     <li>position을 활용한 위치 변경</li>
     <li>반응형 디자인</li>
@@ -474,3 +474,163 @@ hello world
 <p>앞으로 저희는 CSS에 대해서 많이 배우게 될 거에요. 본격적인 웹개발을 시작해볼게요.</p>
 
 <h2 id="tuto-3">CSS의 시작</h2>
+<p>CSS를 배우기 시작하면 여러분은 이제 제대로 된 웹개발을 하는 거에요. HTML은 이때까지 본 것과 깉이 눈에 보이는 직접적인 것을 정의내리기 보다는 웹사이트의 추상적인 구조를 잡아주는 역할을 하거든요.</p>
+<p>우선 CSS를 적용시키는 방법을 알아야 CSS를 배워도 활용할 수 있겠죠?</p>
+<p>비쥬얼 스튜디오 코드에서 index.css 파일을 하나 만들어 주세요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML + CSS</title>
+    <meta name="description" content="html, css를 배우기 위한 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+</head>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>그리고 head부분을 이렇게 해주세요. 뭐가 변했는지 보이나요? 네, 딱 한 군데만 변했죠. 이번에는 link태그를 활용했어요.</p>
+<p>링크 태그의 href 속성을 금방 만든 index.css로 해줬어요. 그러면 이 html 페이지에는 이제 css가 적용될거에요. 바로 index.css에 정의된 디자인 요소들이 index.html 파일 내에 있는 html 태그들에게 적용되거든요.</p>
+<p>엄청 간단한 디자인을 한번 적용시켜 볼게요. 아래의 css 코드를 index.css에 써주세요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+body {
+    background: lightblue;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이 상태로 모든 변화된 내용을 저장해주고 live server로 웹사이트의 상태를 확인해주세요.</p>
+<div class="centered-img">
+    <img src="https://drive.google.com/uc?export=view&id=1Ct10vsPevEQ-56yVxKz2sMvJJTJd2r6w" alt="pagewithbackground">
+</div>
+<p>제가 만든 페이지는 안 그래도 못생긴 페이지인데 점점 더 못생겨 가네요. 🤔</p>
+<div class="blog-space"></div>
+<p>그래도 이렇게 저희는 디자인적인 요소를 적용시킬 수 있다는 걸 확인했죠? 그러면 사실 다 끝난거에요. 이제 CSS 몇개 배워서 적용시키고 웹사이트 예쁘게 만들면 되거든요.</p>
+
+<div class="blog-space"></div>
+<p class="with-background">CSS 적용하는 다른 방법</p>
+<div class="blog-space"></div>
+<p>CSS는 위에서 본 것과 같이 다른 파일에서 관리하는 방식이 있고, HTML파일 내에 바로 정의하는 방식이 있어요.</p>
+<p>물론 따로 관리하는게 훨씬 코드 작성하기 편하고 추후에 유지보수도 쉬워지겠지만, 지금 저희는 연습하고 있잖아요? 그러니깐 하나의 파일로 모든 코드를 테스트해보는 것도 좋은 생각이에요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML + CSS</title>
+    <meta name="description" content="html, css를 배우기 위한 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+        body {
+            background: lightblue;
+        }
+    </style>
+</head>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>다시 index.html 파일을 수정할게요. 이번에는 금방 정의한 link태그를 주석처리 했어요. 위에 보이는 것과 같이 코드 줄을 감싸주면 주석처리가 되어 브라우저에서는 무시를 하고 넘어가요.</p>
+<p>일일이 저렇게 치기 힘들기 떄문에 모든 텍스트 에디터의 공통된 기능으로 주석처리 할 코드 줄을 선택한 후에 <span class="inv-highlight">CMD + / (윈도우: CTRL + /)</span>을 누르면 자동으로 주석처리 될거에요.</p>
+<p>어떤가요? live server로 한번 확인해보셨나요? css파일을 연결시킨 것과 같은 효과죠? 저런 식으로 css 코드가 길지 않다면 저렇게 하는 것도 나쁘지 않지만, 곧 아시게 되겠지만 코드가 상당히 길어질 거에요...그래서 처음부터 그냥 css 파일을 따로 관리하는 방향으로 블로그글을 진행할게요.</p>
+<div class="blog-space"></div>
+<p>사실 css를 적용시키는 다른 방식이 하나 더 있어요. 그것도 보여드리고 넘어갈게요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body style="background:red;">
+    <div>
+        <h2>링크, 이미지 활용법</h2>
+        <p>
+            이 <a href="https://blended.kr">링크</a>는 현재 창에서 이동되며,
+            이 <a href="https://blended.kr" target="_blank">링크</a>는 새 탭을 열어서 이동합니다.
+        </p>
+        <br>
+        <img src="gradient.jpg" alt="gradient">
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이번에는 head부분은 그대로 두고 body태그만 수정해볼게요. body태그 안에 style이라는 속성을 정의내려 주세요. 그리고 background속성을 저 안에서 정의내려주는 거죠.</p>
+<p>여기서 live server로 결과를 확인해보면 css가 그대로 적용되고 있는데도 background 색상이 빨갛게 변한걸 볼 수 있어요. 이건 브라우저가 html을 순서대로 읽어나가기 때문이에요.</p>
+<p>간단하게 생각해서 style태그 안의 css가 body 색상을 lightblue라고 정의내렸지만, 그 아래에 있는 body태그 안에 있는 style속성이 red라고 정의를 내림으로써 body태그 안에 있는 style이 우선순위로 적용된거죠.</p>
+<p>이 방식은 사용하기 쉽지만, 규모가 커질수록 쓸모 없다는걸 알겠죠? 네, 그래서 저는 css 파일을 따로 관리하는 방식을 택할게요~</p>
+<div class="blog-space"></div>
+<p>css는 직접 쳐보는게 매우 중요해요. <span class="highlight">그래서 바로 다음 파트로 넘어가서 본격적으로 css 공부를 진행할게요.</span></p>
+
+<h2 id="tuto-4">텍스트와 박스 모델</h2>
+<p>가장 먼저 배울 내용은 텍스트와 박스 모델이에요. 제 개인적인 생각으로 웹사이트를 가장 아름답게 하는 쉬운 방식은 예쁜 폰트를 사용하는 거에요.</p>
+<p>요즘은 비싼 돈을 안 주더라도 정말 아름다운 무료 폰트들이 많아서 웹개발이 예전보다 많이 쉬워졌어요. 제가 소개드릴 폰트 저장소는 바로: <a href="https://fonts.google.com/" target="_blank"><span class="highlight">구글 폰트</span></a>에요.</p>
+<div class="centered-img">
+    <img src="https://drive.google.com/uc?export=view&id=1aJyKbliz_c5C_J-4IbmRupDa3SMQC8ow" alt="googlefonts">
+</div>
+<p>정말 접속과 동시에 아름다운 폰트들이 많이 보이지 않나요? 여기 있는 모든 폰트를 무료로 받아서 사용할 수 있다는데 저는 매우 감사하고 있어요. 실제로 많은 프로젝트에서도 활용 중이고요.</p>
+<div class="centered-img">
+    <img src="https://drive.google.com/uc?export=view&id=1kZXdjSA6FMTtO8rroCeOZ4_DQHeo9aoB" alt="googlefonts">
+</div>
+<p>저는 정말 많은 사람들이 사용하는 나눔 고딕체를 사용할게요. Regular 400체를 선택해보면</p>
+<div class="centered-img">
+    <div class="small-centered-img">
+        <img src="https://drive.google.com/uc?export=view&id=1elEJE4lcr_aHGX6hcNfvltLY5SHW_JVI" alt="googlefontsselect">
+    </div>
+</div>
+<p>이렇게 폰트를 다운로드 받을 수 있는 창이 떠요. 폰트를 직접 가지고 있으면서 html에 적용시키고 싶다면 그렇게 하면 되지만, 저는 좀 더 쉬운 방식을 택할게요.</p>
+<div class="centered-img">
+    <div class="small-centered-img">
+        <img src="https://drive.google.com/uc?export=view&id=1doVcL_XGratp8eWPV3o4Lw9FdqG_Atu0" alt="googlefontsembed">
+    </div>
+</div>
+<p>위에서 보시는 것과 같이 embed탭을 선택하면 html에 붙여넣으면 되는 link태그를 줘요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML + CSS</title>
+    <meta name="description" content="html, css를 배우기 위한 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>위의 코드와 같이 head태그 부분을 수정해주세요. css파일을 불러오는 방식과 같죠? 네, 맞아요. 쉽게 생각해서 구글이 폰트 제공을 위해서 링크의 형식으로 폰트를 보내준다고 생각하시면 되요.</p>
+<p>그래서 저 링크 태그를 추가하면 웹사이트가 열릴 때마다 저 링크로 요청을 보내서 폰트 파일을 받아서 html에 적용시키는 거에요.</p>
+<p>그러면 실제로 폰트를 가지고 있는 것보다 이 방식이 느릴까요? 저는 잘 모르겠지만, 만약 개인 서버가 구글 서버보다 좋지 않다면 아마 뭘 해도 더 느릴 거에요. 그래서 저는 그냥 저 방식을 사용해서 폰트를 불러와요.</p>
+<div class="blog-space"></div>
+<p>이 상태로 다른 스타일은 모두 제거 한 상태로 live server로 페이지를 확인해보면 아마 폰트 적용이 아직 안 되었을 거에요. 왜냐면 폰트도 저희가 수동적으로 적용시켜줘야 하기 때문이에요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+body {
+    color: #333333;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>위와 같이 index.css 파일 내용을 수정해볼게요. color는 background와 다르게 텍스트의 색상을 정의내리는 방식이에요. 그리고 font-family 속성은 폰트를 정의내리는 방식이에요.</p>
+<p>이 상태로 저장을 한 다음 브라우저에서 페이지를 다시 확인해보세요. 어떤가요? 글씨체가 훨씬 아름답지 않나요?</p>
+
+<div class="blog-space"></div>
+<p class="with-background">텍스트 디자인의 모든 것</p>
+<div class="blog-space"></div>
+
+
+

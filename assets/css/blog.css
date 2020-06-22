@@ -337,6 +337,13 @@ span.highlight {
     color: var(--highlight-green);
 }
 
+span.inv-highlight {
+    background: var(--border);
+    color: var(--pink);
+    border-radius: 3px;
+    padding: 0.2rem 0.3rem;
+}
+
 .blog-entry > .content > .centered-img {
     width: 100%;
     display: flex;
@@ -344,8 +351,19 @@ span.highlight {
     align-items: center;
 }
 
+.small-centered-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .blog-entry > .content > div > img {
     width: 95%;
+    margin: 3rem 0;
+}
+
+.small-centered-img > img {
+    width: 50%;
     margin: 3rem 0;
 }
 
