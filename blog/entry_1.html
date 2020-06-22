@@ -161,3 +161,231 @@ hello world
 </div>
 <p>눈치 빠르신 분들은 바로 아셨겠죠. 브라우저의 탭 부분에 금방 변경한 title의 내용이 나와요. body는 변화가 없고요.</p>
 <p>결국, head부분에서는 메인 창 이외의 사이트 정보를 수정하는 곳이라고 생각하면 될 것 같아요.</p>
+<div class="blog-space"></div>
+<p>더 나아가서 body태그 안에서 사용할 수 있는 다양한 기본 태그들을 조금 더 설명드릴게요.</p>
+
+<div class="blog-space"></div>
+<p style="font-size:1.6rem;"><em><strong>1. div, span, p 태그</strong></em></p>
+<div class="blog-space"></div>
+<p>div태그는 아마 가장 많이 사용되는 html태그 중 하나에요. div는 division의 줄임말 같은데 html에서 블락(block) 레벨의 요소가 되요. 브라우저가 html태그들을 화면상에서 보여줄 때는 하나의 태그씩 차곡차곡 쌓아가면서 보여주는데 이는 그 태그들이 블락 요소들이기 때문이에요.</p>
+<p>한번 예를 들어볼게요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이렇게 div태그 3개를 body태그 안에 만들어 보세요. 그리고 브라우저를 보면 아무 변화가 없을 거에요. div태그는 아무 높이를 설정해주지 않으면 화면상에서 보이지 않기 때문이지요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<p>그러면 어떻게 해야 div태그들을 활성화시킬까요? 바로 텍스트를 넣어주면 되요. div는 따로 명시된 넓이나 높이가 없다면 자신의 내용물과 같은 넓이나 높이를 자동으로 가져가게 되요. 내용물을 채워볼게요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div>div 1</div>
+    <div>div 2</div>
+    <div>div 3</div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div>div 1</div>
+            <div>div 2</div>
+            <div>div 3</div>
+        </div>
+    </div>
+</div>
+<p>여러분도 이렇게 코드를 치고 브라우저를 봤더니 저렇게 텍스트가 하나씩 차곡차곡 쌓였나요? 저런 행동 방식 때문에 div는 block element라고 불러요. 그러면 저렇게 블락처럼 안 쌓이게 하는 방식도 있을까요? 네, inline element를 사용하면 되요!</p>
+<div class="blog-space"></div>
+<p>그 대표적인 예가 바로 span태그에요. span태그는 다른 태그의 아래로 위치하게 되는게 아니라 옆에 위치하게 된다고 inline 요소라고 불리죠.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div>div 1<span>span 1</span></div>
+    <div>div 2<span>span 2</span></div>
+    <div>div 3<span>span 3</span></div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이렇게 코드를 짜면 그 결과는:</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div>div 1<span>span 1</span></div>
+            <div>div 2<span>span 2</span></div>
+            <div>div 3<span>span 3</span></div>
+        </div>
+    </div>
+</div>
+<p>이렇게 보여요. div태그끼리는 서로 열의 방향으로 움직였다면, span은 행의 방향으로 움직이죠?</p>
+<div class="blog-space"></div>
+<p>여기서 태그 하나만 더 배우고 다음 중요한 태그로 넘어갈게요. 이번에 볼 태그는 p태그에요. p는 paragraph의 줄임말로 추정되고, div와 마찬가지로 block 레벨이라고 보시면 되요.</p>
+<p>p태그는 사용하기 쉽기 때문에 제가 실제로 보여드리지는 않을게요. 직접 코드에 p태그를 추가하고 브라우저에서 그 결과를 확인해보시면, div태그와 차이를 이해 못할 수도 있어요.</p>
+<div class="blog-space"></div>
+<p>여기서 중요한 개념 하나 짚고 넘어갈게요! <span class="highlight"><strong>Semantic HTML</strong></span></p>
+<p>시멘틱 하다는 것은 '의미'를 기반으로 한다는 것이에요. 그렇다면 Semantic HTML이라는 것은 html을 의미를 나타내기 위해서 사용한다는 것이 되는거죠.</p>
+<p>div와 p태그의 작동 원리는 같지만 결국은 이름만 다른 거잖아요. 이는 html의 구조를 봤을 때 div는 레이아웃 상 division을 나타내는 태그로 활용되고, p는 컨텐츠를 담고 있는 태그로 활용되기 때문에 분명 구분지어 사용되어야 하죠.</p>
+
+<div class="blog-space"></div>
+<p style="font-size:1.6rem;"><em><strong>2. h1, h2, h3, h4, h5, h6 태그</strong></em></p>
+<div class="blog-space"></div>
+<p>이번에는 h1 ~ h6태그들에 대해서 알아볼게요. h는 heading의 줄임말이에요. 보통 해딩은 제목이나 부제목을 나타낼때 사용하잖아요. h태그도 마찬가지에요.</p>
+<p>웹사이트 상에서 제목이나 부제목을 나타낼때 h태그를 사용하면 되고, h태그는 이제 div, p와는 다르게 스타일링이 추가되어서 보여요! 한번 확인해볼까요?</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div>
+        <h1>제목으로 활용하기 좋은 h1</h1>
+        <h2>제목으로 활용하기 좋은 h2</h2>
+        <h3>제목으로 활용하기 좋은 h3</h3>
+        <h4>제목으로 활용하기 좋은 h4</h4>
+        <h5>제목으로 활용하기 좋은 h5</h5>
+        <h6>제목으로 활용하기 좋은 h6</h6>
+        <p>p태그와는 확실히 다르죠?</p>
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이렇게 코드를 작성하고 브라우저를 확인해주세요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <h1>제목으로 활용하기 좋은 h1</h1>
+            <h2>제목으로 활용하기 좋은 h2</h2>
+            <h3>제목으로 활용하기 좋은 h3</h3>
+            <h4>제목으로 활용하기 좋은 h4</h4>
+            <h5>제목으로 활용하기 좋은 h5</h5>
+            <h6>제목으로 활용하기 좋은 h6</h6>
+            <p>p태그와는 확실히 다르죠?</p>
+        </div>
+    </div>
+</div>
+<p>브라우저를 확인해보시면 h1부터해서 h6까지 글자 크기가 점점 작아지는걸 볼 수 있죠. 자신의 취향에 맞게 적당한 사이즈와 두께의 해딩을 선택해서 사용하면 되요.</p>
+
+<div class="blog-space"></div>
+<p style="font-size:1.6rem;"><em><strong>3. ul, ol, li, em, strong, br, hr 태그</strong></em></p>
+<div class="blog-space"></div>
+<p>이번에는 또 기본적이지만 정말 많이 사용되는 태그 여러개를 배워볼게요. 아, 그전에 스타일 넣는 방법이 아마 궁금할거 같은데요. 스타일링은 CSS를 배우면서 할거에요~ 그러니깐 걱정마시고 우선은 HTML을 배우고 바로 넘어가죠.</p>
+<p>웹사이트를 개발하다보면 리스트 형식의 글을 쓸 때가 있을 거에요. 그런 경우 ul, ol, li 태그들을 사용하고,</p>
+<p>글자를 italic 시키거나 bold처리하고 싶을 때는 em, strong태그를 사용하면 되요.</p>
+<p>그리고 웹사이트 상에서 빈 공간/여백을 나타내고 싶을 때는 br태그를, 그리고 수평선을 긋고 싶을 때는 hr태그를 사용하면 되요.</p>
+<p>한 번에 모두 확인해볼까요?</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div>
+        <h2>Peepee Space 블로그</h2>
+        <h3>하고 싶은걸 하는 블로그</h3>
+        <br>
+        <p>어떤 내용을 다루나 확인할까요?</p>
+        <br>
+        <ul>
+            <li>웹개발</li>
+            <li>디자인</li>
+            <li>데이터분석</li>
+        </ul>
+        <br>
+        <ol>
+            <li>웹개발</li>
+            <li>디자인</li>
+            <li>데이터분석</li>
+        </ol>
+        <hr>
+        <p>모두 확인하셨나요? <strong>뭐가 제일 궁금한가요?</strong></p>
+        <p><em>저는 웹개발</em></p>
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>자, 여기저기 금방 얘기한 모든 태그들이 숨어있죠? 조금 복잡할 수 있지만, 직접 쳐보시고 실제로 브라우저에서 어떻게 보이는지 꼭 익숙해지길 바라요. 한번 확인해볼까요?</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <h2>Peepee Space 블로그</h2>
+            <h3>하고 싶은걸 하는 블로그</h3>
+            <br>
+            <p>어떤 내용을 다루나 확인할까요?</p>
+            <br>
+            <ul>
+                <li>웹개발</li>
+                <li>디자인</li>
+                <li>데이터분석</li>
+            </ul>
+            <br>
+            <ol>
+                <li>웹개발</li>
+                <li>디자인</li>
+                <li>데이터분석</li>
+            </ol>
+            <hr>
+            <p>모두 확인하셨나요? <strong>뭐가 제일 궁금한가요?</strong></p>
+            <p><em>저는 웹개발</em></p>
+        </div>
+    </div>
+</div>
+<p>세상에서 제일 예쁜 페이지는 아니지만, 그래도 뭔가 구조는 잡혀있죠? 이게 html의 핵심이에요. <span class="highlight">웹사이트의 구조를 잡아주는 역할을 하는 거죠.</span></p>
+<div class="blog-space"></div>
+<p>ul, ol태그를 보면 unordered list와 ordered list의 약자라는걸 알 수 있어요. ul태그 안에 있는 li태그들은 아무 숫자 표시 없이 그저 블락구조로 아래로 쌓이기만 하죠. 하지만, ol태그 안에 있는 li태그들은 순서대로 숫자가 붙죠?</p>
+<div class="blog-space"></div>
+<p>br태그를 사용하면 사용한 위치에 빈 공간이 생기는걸 볼 수 있어요. 그리고 hr태그는 수평선을 그어주죠. 물론 CSS로 이런 효과를 내는걸 선호하지만, html로도 이런 효과를 낼 수 있다는 걸 보여드리기 위해서 같이 작성해봤어요.</p>
+<div class="blog-space"></div>
+<p>마지막으로, em과 strong은 보시는 것과 같이 이탤릭 효과 그리고 볼드 효과를 연출하기 위한 태그죠. 그리고 이 태그들은 사용한다고 수직으로 요소들을 쌓는게 아니기 때문에 inline element라는 점 잊으면 안 되요!</p>
+<div class="blog-space"></div>
+<p>이렇게 HTML의 기본 태그들에 대해 배워보았어요. 다음에는 이미지와 링크를 다루는 법을 배울게요. 그 후에는 바로 CSS를 배워서 예쁜 페이지를 만드는데 집중해보겠습니다.</p>
