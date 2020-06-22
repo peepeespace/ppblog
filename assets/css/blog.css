@@ -54,12 +54,12 @@ button:focus {
 }
 
 ::-moz-selection {
-    color: var(--text-light);
+    color: var(--shade-text-pink);
     background: var(--orange);
 }
   
 ::selection {
-    color: var(--text-light);
+    color: var(--shade-text-pink);
     background: var(--orange);
 }
 
@@ -273,6 +273,14 @@ article > .intro {
     height: 2rem;
 }
 
+.with-background {
+    padding: 0.7rem;
+    background: var(--dark-background);
+    color: var(--pink);
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
 .blog-entry > .category {
     color: var(--blue);
     font-size: 1.7rem;
@@ -316,12 +324,16 @@ article > .intro {
     color: var(--blue);
 }
 
+.blog-entry > .content > ul > li > a:hover {
+    color: var(--blue);
+}
+
 .blog-entry > .content > p {
     line-height: 2.5rem;
     font-size: 1.5rem;
 }
 
-.blog-entry > .content > p > span.highlight {
+span.highlight {
     color: var(--highlight-green);
 }
 
