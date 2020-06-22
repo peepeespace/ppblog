@@ -1,5 +1,6 @@
 :root {
     --background: #fafafa;
+    --dark-background: #f7f7f7;
     --border: #dedede;
     --text: #333333;
     --text-light: #6e6e6e;
@@ -7,6 +8,7 @@
     --purple: #6c5ce7;
     --blue: #0984e3;
     --green: #00cec9;
+    --highlight-green: #00b894;
     --pink: #fd79a8;
     --orange: #fdcb6e;
     --shade-text-pink: #ff7675;
@@ -141,9 +143,201 @@ article > .intro {
     font-size: 1.5rem;
 }
 
+.list > img {
+    width: 100%;
+    height: 100%;
+}
+
+/* /////////////////////////////////////////////// */
+/* Blog Element Start: Code Output Snippet Browser */
+/* /////////////////////////////////////////////// */
+.code-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 0;
+}
+
+.code-snippet {
+    width: 80%;
+    height: 100%;
+    border-radius: 7px;
+    margin-bottom: 1rem;
+}
+
+.browser-upper {
+    width: 100%;
+    display: flex;
+    border-radius: 7px 7px 0 0;
+    background: #e6e6e6;
+    padding: 1.3rem;
+}
+
+.browser-btn {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.close-btn {
+    background: #e85f60;
+}
+
+.minify-btn {
+    background: #f5cb7d;
+}
+
+.expand-btn {
+    background: #16dbb5;
+}
+
+.browser-content {
+    background: #f2f2f2;
+    width: 100%;
+    border-radius: 0 0 7px 7px;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    color: #3d3d3d;
+}
+/* ///////////////////////////////////////////// */
+/* Blog Element End: Code Output Snippet Browser */
+/* ///////////////////////////////////////////// */
+
+.blog-entry {
+    font-family: 'Source Sans Pro', 'Noto Sans KR', sans-serif;
+}
+
+.blog-space {
+    width: 100%;
+    height: 2rem;
+}
+
+.blog-entry > .category {
+    color: var(--blue);
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.blog-entry > .title {
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 0.3rem 0 0.3rem 0;
+}
+
+.blog-entry > .subtitle {
+    color: var(--text-light);
+    font-size: 1.5rem;
+}
+
+.blog-entry > .summary {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    background: var(--dark-background);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.blog-entry > .content > ul {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 3rem 0;
+    font-size: 1.4rem;
+}
+
+.blog-entry > .content > ul > li {
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.blog-entry > .content > ul > li:hover {
+    color: var(--blue);
+}
+
+.blog-entry > .content > p {
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.blog-entry > .content > p > span.highlight {
+    color: var(--highlight-green);
+}
+
+.blog-entry > .content > .centered-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-entry > .content > div > img {
+    width: 95%;
+    margin: 3rem 0;
+}
+
+.blog-entry > .content > h2 {
+    font-size: 2rem;
+    margin: 3rem 0;
+}
+
+.top-space {
+    margin-top: 2rem;
+}
+
+.code-pre {
+    border-radius: 5px;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    font-size: 1.3rem;
+}
+
+.blog-links {
+    width: 90%;
+    font-size: 1.3rem;
+    margin: 5rem 0 3rem 0;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.blog-links > .main {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-links > .blog-item {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+}
+
+.blog-item > .blog-title {
+    cursor: pointer;
+}
+
+.blog-item > .blog-title:hover {
+    color: var(--text-light);
+}
+
+.blog-item > .blog-date {
+    color: var(--text-light);
+}
+
 footer {
+    margin-top: 10rem;
     width: var(--mobile-width);
-    background: lightcoral;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--border);
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
   
@@ -152,9 +346,61 @@ footer {
 }
   
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
+    .navigation {
+        width: 50%;
+    }
 
+    .main-content {
+        width: 50%;
+    }
+
+    .banner {
+        height: 25rem;
+    }
+
+    .banner > img {
+        height: 20rem;
+    }
+    
+    .banner > h1 {
+        font-size: 3.5rem;
+    }
+
+    .blog-links {
+        width: 50%;
+    }
+
+    footer {
+        width: 50%;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
+    .navigation {
+        width: 40%;
+    }
 
+    .main-content {
+        width: 40%;
+    }
+
+    .banner {
+        height: 25rem;
+    }
+
+    .banner > img {
+        height: 20rem;
+    }
+    
+    .banner > h1 {
+        font-size: 3.5rem;
+    }
+
+    .blog-links {
+        width: 40%;
+    }
+
+    footer {
+        width: 40%;
+    }
 }

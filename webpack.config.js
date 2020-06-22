@@ -41,7 +41,7 @@ module.exports = {
             }
         },
         {
-          test: /\.(jpe?g|png|gif|svg|otf|ttf)$/i, 
+          test: /\.(jpe?g|png|gif|svg|otf|ttf|txt)$/i, 
           loader: "file-loader?name=/assets/[name].[ext]"
         }
       ]
