@@ -631,6 +631,420 @@ body {
 <div class="blog-space"></div>
 <p class="with-background">텍스트 디자인의 모든 것</p>
 <div class="blog-space"></div>
+<p>지금부터 텍스트를 디자인해볼게요. 텍스트를 다루다 보면 css의 많은 부분을 이해할 수 있을 거에요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p>우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>우선 이렇게 간단한 p태그 하나를 만들어서 브라우저상에 띄워볼게요. 이 정도는 혼자서도 충분히 할 수 있겠죠?</p>
+<p>텍스트의 크기, 폰트, 색상을 변경시키는 방법은 이미 봤어요. 바로 <span class="inv-highlight">font-size, font-family, color</span>를 사용하는 방법이었죠.</p>
+<div class="blog-space"></div>
+<p>텍스트 크기에 대해 배우기 전에 웹브라우저의 유닛 크기에 대해 알아볼게요. 1px이 컴퓨터 화면의 최고 기본 단위인건 아실거에요. 그럼 1px이 어느정도 크기인지 확인해볼까요? 저 폰트를 1px 크기로 변경해보죠.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p style="font-size: 1px;">우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>css 적용 방법은 당연히 아시겠지만, 한번 더 보여드릴게요~</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+p {
+    font-size: 1px;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>그나저나 1px 생각보다 그렇게 작지는 않네요. 저는 거의 점일거라 예상했는데...</p>
+<p>css에서 사용하는 유닛 중에 em, rem, vh, vw가 있어요. 제가 소개드릴 단위는 rem이에요. 실제로 저는 현재 px, rem만 사용하고 있거든요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+html {
+    font-size: 62.5%; /* 16px이 100%, 62.5%는 10px */
+}
 
+p {
+    font-size: 1px;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이렇게 위와 같이 html태그에 font-size를 지정해주면 1rem은 저 폰트 사이즈와 동일하게 되요. 그 이유는 rem은 최상위 태그의 폰트 사이즈를 기본값으로 가져 가기 때문이고, html태그가 모든 태그의 최상위 태그이기 때문이죠.</p>
+<div class="blog-space"></div>
+<p>기본적으로 html태그의 폰트 크기는 16픽셀이에요. 거기서 62.5%를 취해주면 10px이 되요. 그래서 저는 1rem을 10px로 인식하고 쉽게 사용하려고 저렇게 미리 정의내리고 시작해요.</p>
+<p><span class="highlight">앞으로 저는 rem 단위만 사용할게요!</span></p>
+<div class="blog-space"></div>
+<p>이제는 텍스트 크기 외 추가적으로 폰트와 색상도 변경해볼게요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+p {
+    font-size: 1px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #6c5ce7;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>그 결과는:</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p style="font-size:1px;font-family:'Nanum Gothic';color:#6c5ce7">우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>흠, 제 취향인데요? 역시 보라색은 예뻐요 🙆‍♂️</p>
+<p>폰트 css가 적용된게 보이죠?</p>
+<p>이번에는 간단한 텍스트 정렬을 해볼게요. 텍스트 정렬은 text-align을 사용해서 할 수 있고, 사용할 수 있는 속성은: left, center, right을 사용하시면 되요.</p>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+p {
+    font-size: 0.1rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #6c5ce7;
+    text-align: center;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>1px 같은 경우 그냥 px로 사용하지만 그냥 rem으로 바꿔봤어요. 그리고 위의 코드는 결과물을 보면 아래와 같아요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p style="font-size:1px;font-family:'Nanum Gothic';color:#6c5ce7;text-align:center;">우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>이렇게 텍스트가 가운대 정렬되는게 보이죠? 마지막으로 이건 자주 사용되는 기능은 아니지만, 그래서 고급 기능이라고 생각해도 되겠네요. text-shadow에 대해서도 간단하게 설명드릴게요.</p>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+p {
+    font-size: 1rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+    color: #6c5ce7;
+    text-align: center;
+    text-shadow: 3px 3px 0px #f2a063;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이번에는 font-weight도 추가했고, text-shadow도 함께 추가했어요. font-weight는 normal(400), bold(700), bolder, lighter처럼 영어로 정의내려줘도 되고, 100부터 900까지 100단위로 900이 가장 두꺼운 글씨로 정의내릴 수도 있어요.</p>
+<div class="blog-space"></div>
+<p>그리고 text-shadow는 좀 복잡하죠? 3px 3px 0px #f2a063. 왜 이렇게 4개의 옵션이 있을까요?</p>
+<div class="blog-space"></div>
+<p>text-shadow는 <span class="highlight">[x거리] [y거리] [흐림정도] [색상]</span>과 같이 4개의 옵션을 추가해서 정의내릴 수 있어요. x거리를 키울 수록 텍스트 그림자는 오른쪽으로 더 나오게 되고, y거리를 키울 수록 아래로 내려오게 되죠. 반대로 -를 붙여서 정의내리면 반대로 이동해요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p style="font-size:10px;font-family:'Nanum Gothic';color:#6c5ce7;text-align:center;text-shadow: 3px 3px 0px #f2a063;font-weight: bold;">우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>결과물이 보이나요? 물론 마음에 들지는 않지만 저것도 마음에 들게 할 수 있어요. 바로...</p>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+p {
+    font-size: 2rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+    color: #6c5ce7;
+    text-align: center;
+    text-shadow: 3px 3px #f2a063,
+                 2px 2px #f2a063,
+                 1px 1px #f2a063;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>위와 같이 text-shadow를 여러번 정의해주는 방식이에요. 이렇게 하면 그림자가 두꺼워져서 동떨어진 곳에 갑자기 그림자가 생기는게 아니라 텍스트와 한 몸인 것처럼 보이죠.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <p style="font-size:20px;font-family:'Nanum Gothic';color:#6c5ce7;text-align:center;text-shadow: 3px 3px #f2a063,2px 2px #f2a063,1px 1px #f2a063;font-weight: bold;">우리가 예쁘게 만들 텍스트</p>
+        </div>
+    </div>
+</div>
+<p>어때요? 좀더 두꺼워졌죠? 저는 힘들어서 1px 단위로 한번씩 그림자를 정의했지만, 0.25픽셀씩 한 10번 넘게 그림자를 정의해주면 정말 텍스트와 연결되어 보인답니다.</p>
+<p>여러분은 이제 css로 텍스트에 효과를 주는 거의 모든 방법에 대해 익혔어요. 이제는 박스 모델에 대해서 배워볼게요.</p>
 
+<div class="blog-space"></div>
+<p class="with-background">The Box Model</p>
+<div class="blog-space"></div>
+<p>저~~ 위에서 div태그는 블락 요소라고 했던 것 기억하나요? 블락이기 때문에 한 줄을 전부 차지하고 다음 블락 요소는 그 아래에 위치할 수밖에 없죠.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>index.html에서 이렇게 정의내린 것 기억하나요?</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div></div>
+            <div></div>
+            <div></div>        
+        </div>
+    </div>
+</div>
+<p>그 결과는 브라우저에서 아무 것도 안 보이는 거였죠. 하지만 여기서 이제 css를 알기 때문에 div태그의 넓이와 높이를 정의내려줄 수 있어요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+div {
+    width: 100%;
+    height: 3rem;
+    background: #6c5ce7;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>이렇게 index.css에서 div태그의 요소들에 모두 width는 100퍼센트로 (여기서 px, rem을 사용해서 자신이 원하는 넓이로 정의해줘도 되요! 저는 그냥 브라우저를 꽉 채우게 하고 싶어서 100%로 했어요~) 그리고 높이는 3rem으로 정의내렸어요.</p>
+<div class="blog-space"></div>
+<p>여기서 추가로, div태그의 background는 div태그가 차지하고 있는 공간만큼만 배경에 색상을 입혀주죠. 아래에서 한번 확인해볼게요.</p>
+<div class="blog-space"></div>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div style="width:100%;height:3rem;background:#6c5ce7"></div>
+            <div style="width:100%;height:3rem;background:#6c5ce7"></div>
+            <div style="width:100%;height:3rem;background:#6c5ce7"></div>      
+        </div>
+    </div>
+</div>
+<p>음...뭔가 보라색 공간이 생긴거 같긴한데, 저는 분명히 div태그 3개를 만들었잖아요. 왜 하나죠?</p>
+<div class="blog-space"></div>
+<p>여기서 그 유명한 박스 모델이 나와요. HTML의 모든 태그들은 일정한 넓이와 높이를 가지고 브라우저 안에서 공간을 차지하고 있어요. 근데 그 공간은 모두 박스의 형태죠. 그리고 다음 태그 요소와 사이에 아무 공간도 없어요! 그렇기 때문에 아무리 다음 태그로 넘어가도 만약 같은 색상의 배경색이라면 그 경계가 뚜렷하지 않죠.</p>
+<div class="blog-space"></div>
+<p>그 경계를 눈으로 확인하기 위해서 div의 배경색을 모두 다르게 해볼게요. class(클래스)라는 css 선택자를 사용하면 각 div에 클래스를 지정하여 따로 css를 적용할 수 있어요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div class="pink-div"></div>
+    <div id="purple-div"></div>
+    <div class="pink-div"></div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>index.html에서 저는 일부러 첫번째, 마지막 div에게 pink-div라는 클래스명을 주고, 두번째 div는 purple-div라는 id값을 줬어요.</p>
+<p>사실 class나 id 모두 비슷하지만, 보통은 여러 요소에 공통된 디자인을 적용시키고 싶을때 class를, 하나의 타겟된 요소에 디자인을 적용시키고 싶은 때 id를 사용해요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+div {
+    width: 100%;
+    height: 3rem;
+}
+
+.pink-div {
+    background: #fd79a8;
+}
+
+#purple-div {
+    background: #6c5ce7;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>index.css에서 제가 뭘 했는지 잘 봤나요? 클래스에 css를 적용시키기 위해서 저는 pink-div라는 클래스의 css 공간을 정의내렸지만, 그냥 pink-div라고 하지 않고, .pink-div라고 했어요.</p>
+<p>클래스를 지정할 때는 .을 붙이고, id를 지정할 때는 #을 붙여줘야 해요. 그럼 그 결과를 확인해볼게요?</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div style="width:100%;height:3rem;background:#fd79a8"></div>
+            <div style="width:100%;height:3rem;background:#6c5ce7"></div>
+            <div style="width:100%;height:3rem;background:#fd79a8"></div>      
+        </div>
+    </div>
+</div>
+<p>이제 완벽하죠? 이렇게 div 태그의 공통된 디자인은 태그 전체에 css를 정의내리고, 색상만 변경하기 위한 클래스와 아이디명을 div태그에 줘서 원하는 디자인을 적용시켰어요.</p>
+<p>이번에는 div안에 텍스트도 추가해볼까요?</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div class="pink-div">박스 모델</div>
+    <div id="purple-div">Box Model</div>
+    <div class="pink-div">박스 모델</div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>브라우저에서 확인해보면:</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div style="width:100%;height:3rem;background:#fd79a8;">박스 모델</div>
+            <div style="width:100%;height:3rem;background:#6c5ce7">Box Model</div>
+            <div style="width:100%;height:3rem;background:#fd79a8">박스 모델</div>      
+        </div>
+    </div>
+</div>
+<p>어, 그런데 이상하죠? 왜 텍스트가 저렇게 왼쪽 위 모퉁이에 박혀있죠? 당연히 중간에 있어야 하지 않나요?</p>
+<div class="blog-space"></div>
+<p>사실 저게 정상 맞아요. 왜냐면 저희가 css로 div의 높이를 3rem로 정의했죠. 그런데 저 텍스트 크기는 분명 3rem이 아니거든요. 그래서 저렇게 아래로 공간이 생기는 거에요.</p>
+<p>그러면 저런 경우에는 어떻게 해야 가운데로 오게 될까요?</p>
+<p>그건 바로 적용시킬 수 있는 마법같은 속성은 없고요. 우선 div의 높이를 텍스트의 크기와 맞춰줘야 해요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+div {
+    width: 100%;
+    height: 100%;
+}
+
+.pink-div {
+    color: white;
+    background: #fd79a8;
+}
+
+#purple-div {
+    color: white;
+    background: #6c5ce7;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>index.css에서 높이를 100%로 해주고, 이왕 디자인을 조금 수정하는 김에 텍스트 색도 눈에 더 잘 보이게 흰색으로 수정했어요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div style="width:100%;height:100%;background:#fd79a8;color:white;">박스 모델</div>
+            <div style="width:100%;height:100%;background:#6c5ce7;color:white;">Box Model</div>
+            <div style="width:100%;height:100%;background:#fd79a8;color:white;">박스 모델</div>      
+        </div>
+    </div>
+</div>
+<p>그럼 결과는 이렇겠죠. 여기서 div 안에 있는 padding을 수정해주면 되요.</p>
+<div class="centered-img">
+    <img src="https://drive.google.com/uc?export=view&id=1cU3x2uhCHhY0Ok8xKiLOH86fSyB93IQg" alt="pagewithbackground">
+</div>
+<p>위의 이미지는 html 요소들의 네모 공간 내에 어떤 속성들을 수정할 수 있는지 아주 잘 보여주는 박스 모델의 그림인데요.</p>
+<p>텍스트 부분을 content 부분이라고 생각하시면 되요. 거기를 감싸고 있는 부분이 padding. 그리고 padding과 content를 감싸고 있는 border. 그리고 마지막으로 margin이 있죠.</p>
+<p>padding을 1rem이라고 정의 해볼게요.</p>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+div {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.pink-div {
+    color: white;
+    background: #fd79a8;
+}
+
+#purple-div {
+    color: white;
+    background: #6c5ce7;
+}
+    </code>
+</pre>
+<div class="blog-space"></div>
+<p>브라우저에서 그 결과를 확인해보세요. 어떻게 됐나요?</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div style="width:100%;height:100%;background:#fd79a8;color:white;padding:1rem;">박스 모델</div>
+            <div style="width:100%;height:100%;background:#6c5ce7;color:white;padding:1rem;">Box Model</div>
+            <div style="width:100%;height:100%;background:#fd79a8;color:white;padding:1rem;">박스 모델</div>      
+        </div>
+    </div>
+</div>
+<p>어떤가요? 텍스트가 정가운데로 이동했죠? 그 이유는 텍스트 content 부분과 border사이의 공간이 0에서 1rem으로 늘어났기 때문이에요.</p>
+<p>현재 저는 위, 아래, 왼쪽, 오른쪽 padding을 전부 1rem으로 설정했는데요. 여기서 따로 타겟해서 원하는 부분만 padding을 설정할 수도 있어요.</p>
+<p><span class="inv-highlight">padding: [padding top/위] [padding right/오른쪽] [padding bottom/아래] [padding left/왼쪽]</span></p>
+<div class="blog-space"></div>
+<p>이렇게 text-shadow와 비슷하게 4개의 속성을 한번에 줄 수 있어요. 물론 그 말은 padding-top: 1rem;과 같은 식으로 따로 속성명을 저렇게 해서 원하는 위치에 padding을 정의내릴 수도 있죠.</p>
+<div class="blog-space"></div>
+<p>추가로, <span class="inv-highlight">padding: [padding top & bottom] [padding left & right]</span>와 같이 2개의 속성을 정의할 수도 있어요. 이는 위아래를 같게, 그리고 왼쪽, 오른쪽을 같게 정의내리는 거죠.</p>
+<div class="blog-space"></div>
+<p>padding: 1rem;</p>
+<p>padding: 1rem 1rem 1rem 1rem;</p>
+<p>padding: 1rem 1rem;</p>
+<div class="blog-space"></div>
+<p>은 모두 같은거죠.</p>
 

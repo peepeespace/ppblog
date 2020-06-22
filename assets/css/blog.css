@@ -378,11 +378,15 @@ span.inv-highlight {
 
 .code-pre {
     border-radius: 5px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
     font-size: 1.3rem;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .blog-links {
