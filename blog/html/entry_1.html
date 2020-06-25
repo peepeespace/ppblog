@@ -1,9 +1,7 @@
 <p>안녕하세요? 박시형입니다~ 오늘부터 이렇게 블로그를 하면서 웹사이트 개발 시리즈도 함께 시작할까 해요.</p>
 <p>제가 웹개발을 시작한지 벌써 7년이 다 되어 가네요. 물론, 그 시간동안 하루종일 개발만 공부한 건 아니지요. 놀거 다 놀면서 취미로 시작했다가 이제는 개인 웹사이트를 만들고 서비스도 운영하고 있는 중입니다.</p>
 <p>그 과정에서 제가 축적한 노하우를 여러분께 나누어 드리고자 이렇게 간단한 블로그를 하나 만들게 되었어요. 오늘부터 4강에 걸쳐 저희가 배우게 될 내용은:</p>
-<div class="blog-space"></div>
 <p><span class="highlight">이 블로그와 같은 웹사이트를 바닥부터 만들어서 배포하는 방법</span>입니다.</p>
-<div class="blog-space"></div>
 <p>내용이 생각보다 많아서 놀라실 수 있는데, 제가 4강, 즉 빠른 사람에게는 4시간, 그리고 완전 초보에게는 10시간 정도의 시간 안에 웹사이트를 만드는 방법을 알려드릴게요.</p>
 <p>그 전에 1강에 대한 소개를 하겠습니다.</p>
 
@@ -11,37 +9,38 @@
 <p>컴퓨터 기술을 배우는 가장 확실하면서 효율적인 방법은 직접 해보는 거에요. 백날 이론/개념서를 펼쳐두고 컴퓨터 기술에 관한 글을 읽어봐도 직접 해보지 않으면 아무 소용 없기 때문이거든요.</p>
 <p>그래서 제 블로그는 이론 설명은 적고, 빠른 시간 내에 많은 실습을 통해서 실력 향상을 노릴 수 있는 방식으로 작성할거에요.</p>
 <p>오늘 배울 내용을 소개드립니다! 내용이 많으니 간식 챙기고 같이 들으면서 내용 따라할 노래 몇개 준비해두세요. 💪</p>
-<ul>
+<ul id="table-of-contents">
     <li><a href="#tuto-1">HTML의 기본 태그 설명</a></li>
     <li><a href="#tuto-2">링크와 이미지를 다루는 방법</a></li>
     <li><a href="#tuto-3">CSS의 시작</a></li>
     <li><a href="#tuto-4">텍스트와 박스 모델</a></li>
-    <li>플렉스박스(flexbox)를 활용한 레이아웃</li>
-    <li>position을 활용한 위치 변경</li>
-    <li>반응형 디자인</li>
-    <li>HTML 폼(form)</li>
-    <li>간단한 애니메이션 효과</li>
+    <li><a href="#tuto-5">플렉스박스(flexbox)를 활용한 레이아웃</a></li>
+    <li><a href="#tuto-6">position을 활용한 위치 변경</a></li>
+    <li><a href="#tuto-7">반응형 디자인</a></li>
+    <li><a href="#tuto-8">HTML 폼(form)</a></li>
+    <li><a href="#tuto-9">간단한 애니메이션 효과</a></li>
 </ul>
 <p>어떤가요? 배울 게 엄청 많죠? 그래도 겁먹지 마요. 처음 저 내용을 모두 접하면 정말 어렵겠지만, 저는 어차피 설명은 거의 안 하고 보여드릴 거거든요. 직접 보고 나면 '아 별거 없구나~' 생각하게 되실거에요.</p>
 
 <h2>바로 시작하면서: 준비 단계</h2>
 <p>그럼 두말않고 바로 시작할게요. 우선은 이 수업을 따라가기 위해서 필요한 프로그램을 모두 다운로드하고 시작할게요. 준비물은...두구두구두구</p>
 <p><span class="highlight">텍스트 에디터</span> 하나면 되요! 텍스트 에디터는 제가 선택할게요. 그게 이 글들을 따라가는데 더 편할거에요.</p>
-<p>저는 현재 마이크로소프트의 <span class="highlight"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a></span>를 사용하고 있어요. 여러분도 링크를 타고 다운로드 받길 바라요.</p>
+<p>저는 현재 마이크로소프트의 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><span class="highlight">Visual Studio Code</span></a>를 사용하고 있어요. 여러분도 링크를 타고 다운로드 받길 바라요.</p>
 <div class="centered-img">
     <img src="https://drive.google.com/uc?export=view&id=1BNHWKJNcpn2T5SO_zgUsyOhK17Wt3fbs" alt="vsc">
+    <div class="description">Image 1. Visual Studio Code 메인 화면</div>
 </div>
 <p>다운로드 완료 후 프로그램을 실행시키면 위와 같은 창이 실행될 거에요.</p>
 <p>정말 깔끔한 인터페이스 아닌가요? 그만큼 익숙해지면 사용하기도 편하답니다.</p>
 <p>HTML 파일을 만드는 방법을 알려드릴게요. 사실 처음 제가 웹개발을 배울 때는 이거부터 이해가 안 됐어요...</p>
-<p>지금 생각하면 너무 웃긴데, html파일은 확장자가 html이라는 것 뿐이지 딱히 특볋한 건 없어요. txt파일, jpg파일처럼 확장자가 html인거죠. 웹사이트를 만들기 위해서는 html이라는 파일을 요구하구나 라고 생각하면 되요.</p>
+<p>지금 생각하면 너무 웃긴데, html파일은 확장자가 html이라는 것 뿐이지 딱히 특별한 건 없어요. txt파일, jpg파일처럼 확장자가 html인거죠. 웹사이트를 만들기 위해서는 html이라는 파일을 요구하구나 라고 생각하면 되요.</p>
 <p>아무 폴더를 하나 만들게요. 저는 html_css라고 이름 지을게요.</p>
 <p>VSC의 가장 왼편에 보이는 메뉴의 첫번째 아이코을 선택하여 금방 만든 폴더를 열어주세요. 그러면 빈 창이 보일거에요.</p>
 <div class="centered-img">
     <img src="https://drive.google.com/uc?export=view&id=1EnoBI2m4ccZAuvipGwcl-20zYPIxS3ha" alt="index">
+    <div class="description">Image 2. Visual Studio Code index.html 만들기</div>
 </div>
 <p>위에서 보이시는 것과 같이 index.html이라고 파일을 하나 만든 후에 준비해주세요. 여러분 생애 첫 웹사이트를 이미 만드신 거에요. 그런데 아무 내용이 없으니 브라우저를 열어도 확인이 불가능할 거에요. 그러면:</p>
-<div class="blog-space"></div>
 <pre class="code-pre">
     <code class="language-markup" style="font-size:1.4rem;">
         <script type="prism-html-markup">
@@ -49,19 +48,39 @@ hello world
         </script>
     </code>
 </pre>
+<div class="code-description">index.html</div>
 <div class="blog-space"></div>
 <p>이렇게 작성한 후에 저장해주세요. 그렇게 하셨다면 이제 웹사이트를 브라우저로 확인할 수 있거든요. 하지만 아직 도메인/주소가 없으니 외부에서 이 페이지를 확인하는건 불가능해요!</p>
 <p>HTML, CSS를 활용해서 브라우저가 페이지를 인식하고 그려주는건 해줄 수 있어도 외부에서 접속하도록 도와주는 기능은 따로 만져줘야 하거든요. 그 내용은 3강부터 진행할게요. 우선은 웹사이트를 만드는 방법부터 연구해봐요.</p>
 <p>웹사이트를 확인하고 싶잖아요. 그건 금방 만든 index.html 파일을 더블클릭하면 브라우저가 실행되면서 금방 만든 페이지가 뜰거에요.</p>
 <div class="centered-img">
     <img src="https://drive.google.com/uc?export=view&id=1O_1JOv-hGRbSidI-tej91Fu7tI5_5CEB" alt="browser">
+    <div class="description">Image 3. index.html 브라우저에서 확인</div>
 </div>
 <p>보이시나요? 어떤가요? 웹사이트 만들기 생각보다 쉽죠?</p>
 <p>사실 맞아요. 여러분도 오늘 블로그글을 전부 읽고 따라해본다면 세상 그 어떤 웹사이트도 모방해서 만들 수 있을거에요. 알아야 할 개념이 30~40개 내외인거 같거든요.</p>
 <p>물론 처음에는 그 30~40개가 정말 많게 느껴지고 어렵겠지만, 익숙해지고 나면 완전 재밌을 거에요. 😎</p>
 <p>이제부터 HTML의 기본 태그에 대한 설명 들어가겠습니다.</p>
 
-<h2 id="tuto-1">HTML의 기본 태그 설명</h2>
+<h2 id="tuto-1">1. HTML의 기본 태그 설명</h2>
+<div class="keywords">
+    <div class="classname">배울 HTML 태그</div>
+    <div class="tags">
+        <div class="keyword">div</div>
+        <div class="keyword">span</div>
+        <div class="keyword">p</div>
+        <div class="keyword">h</div>
+        <div class="keyword">ul</div>
+        <div class="keyword">ol</div>
+        <div class="keyword">li</div>
+        <div class="keyword">em</div>
+        <div class="keyword">strong</div>
+        <div class="keyword">br</div>
+        <div class="keyword">hr</div>
+        <div class="keyword">a</div>
+        <div class="keyword">img</div>
+    </div>
+</div>
 <p>매번 html파일을 만들고 폴더로 들어가서 더블클릭하고 웹사이트를 확인하기 힘들잖아요. 그래서 VSC가 제공해주는 extension 패키지를 하나 설치해볼게요.</p>
 <p>이번에는 메뉴에서 가장 아래에 있는 5번째 아이콘(퍼즐처럼 생긴 아이콘)을 선택해보세요. 여기서 저희는 원하는 패키지를 다운로드 받을 수 있어요.</p>
 <p>기본 VSC가 제공하지 못하는 기능들을 여러 사람이 모여 만든 툴이라고 생각하시면 되요. 저희가 받을 툴은 <span class="highlight">Live Server</span>이라는 툴이에요.</p>
@@ -81,7 +100,6 @@ hello world
     <img src="https://drive.google.com/uc?export=view&id=19fM-4Kv7zW4ZFWE4qcR1dv6tCOP0-PXA" alt="indexboiler">
 </div>
 <p>이렇게 갑자기 이상한 태그들이 많이 생기죠? 혼란스럽겠지만, 이게 기본 html 레이아웃이라고 생각하시면 되요. 이제 저희는 이 태그들의 내용을 채워나가면서 웹사이트를 완성할 거에요.</p>
-<div class="blog-space"></div>
 <pre class="code-pre">
     <code class="language-markup" style="font-size:1.4rem;">
         <script type="prism-html-markup">
@@ -114,7 +132,6 @@ hello world
 <p>모든 html 태그는 이렇게 괄호 안에 태그명을 넣어주고 슬래시를 해서 태그의 끝을 알리는 방식으로 만들어요.</p>
 <p>head태그는 이 페이지의 주요 내용 부분은 아니고 브라우저 탭에 보이는 이름, 아이콘 등과 같은 부수적인 정보를 정의내리는 곳이에요.</p>
 <p>그리고 body부분이 저희가 주로 다루게 될 부분이고요.</p>
-<div class="blog-space"></div>
 <pre class="code-pre">
     <code class="language-markup" style="font-size:1.4rem;">
         <script type="prism-html-markup">
@@ -1048,3 +1065,320 @@ div {
 <div class="blog-space"></div>
 <p>은 모두 같은거죠.</p>
 
+<div class="coming-soon">Coming soon...</div>
+
+
+<h2 id="tuto-5">5. 플렉스박스(flexbox)를 활용한 레이아웃</h2>
+<div class="keywords">
+    <div class="classname">Flexbox CSS 속성</div>
+    <div class="tags">
+        <div class="keyword">display</div>
+        <div class="keyword">flex-direction</div>
+        <div class="keyword">flex-wrap</div>
+        <div class="keyword">flex-flow</div>
+        <div class="keyword">justify-content</div>
+        <div class="keyword">align-items</div>
+        <div class="keyword">align-content</div>
+    </div>
+</div>
+<p>여기서부터는 살짝 고급 단계의 맛을 보기 시작할게요. Flexbox를 배우기 시작할건데 CSS를 하는 모든 사람들이 처음에는 아무도 이해 못하고 시작했을 거에요. 저도 정말 이해하는데 오래 걸렸거든요.</p>
+<p><span class="highlight">하지만! flexbox를 이해하면 너무나 유용하기 때문에 힘들어도 꼭 앉아서 이 부분만큼은 끝까지 따라해보길 바라요.</span></p>
+<p>특히 flexbox가 어렵다고 과거에 웹사이트 레이아웃을 잡는 방법을 배워보겠다고 나서면 그때서야 알게 될거에요. '아...flexbox가 쉬운거구나.'</p>
+<p>여기서 저는 flexbox를 이해하기 위해 필요한 기초툴들을 하나씩 소개할게요. 처음에는 느리고 이해 안 되겠지만, 결국 모두 하나가 되면서 완벽하게 이해될거에요.</p>
+<p>Flexbox를 사용하면 웹개발을 할때 복잡한 레이아웃과 반응형 디자인(모바일 유저를 고려한 웹사이트 디자인이에요!)을 적용하기 쉬워져요.</p>
+<div class="blog-space"></div>
+<p class="with-background">Intro</p>
+<div class="blog-space"></div>
+<p>웹개발할때 레이아웃이 왜 중요한가요?</p>
+<p>여러분, 위에서 배운 내용으로 사이드바나 가로로 쭉 뻗어있는 버튼들을 디자인할 수 있나요?</p>
+<p>아직은 못하죠? 왜냐면 박스 모델에서 배운 내용으로는 HTML의 모든 요소들은 새로로 쌓이게 되어있잖아요.</p>
+<p>그래서 네이버같은 복잡한 사이트를 개발하려면 HTML 요소들을 사이드로 보내는 방법, 아니면 훨씬 복잡한 위치 배정 기술이 있어야 해요. 여기서 flexbox가 도움이 되는거죠.</p>
+<p>이해가 안 되죠? 그러면 두말없이 코드부터 보여드릴게요.</p>
+<p>새로운 html파일을 하나 만들어볼게요. 저는 파일명을 flexbox.html이라고 할게요. head부분은 본인이 원하는대로 작성해도 되고, 아예 없어도 아래의 예시를 구현하는데 문제 없을거에요!</p>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flexbox Fun Time</title>
+        <meta name="description" content="flexbox를 배워보는 공간">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="flexbox.css">
+    </head>
+    <body>
+
+    </body>
+</html>
+        </script>
+    </code>
+</pre>
+<div class="code-description">flexbox.html</div>
+<div class="blog-space"></div>
+<p>파일 구조는 이러해요. 앞으로 편의상 해드 부분은 제외하고 바디 부분만 코드로 보여드리겠습니다. 🤘</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content">
+            <div class="flexbox-prac-browser">
+            </div>
+        </div>
+    </div>
+</div>
+<p>당연히 텅빈 body태그 하나뿐인 이 웹사이트는 브라우저에서 아무 것도 볼 수 없어요. 하지만, flexbox의 효과를 눈으로 쉽게 확인하기 위해서 body의 색상을 분홍색으로 바꿔볼게요.</p>
+<p>이왕 css파일을 손보는거 기본 새팅도 모두 마무리 지어볼게요.</p>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 16px이 100%, 62.5%는 10px */
+}
+
+body {
+    background: pink;
+}
+    </code>
+</pre>
+<div class="code-description">flexbox.css</div>
+<div class="blog-space"></div>
+<p>CSS를 적용한 결과는 아래와 같을거에요:</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content flexbox-prac-content">
+            <div class="flexbox-prac-1-browser">
+            </div>
+        </div>
+    </div>
+</div>
+<p>브라우저가 꽉찰 정도로 분홍색이 되었죠? body태그에 백그라운드 색상을 씌워줘서 그런거에요~</p>
+<p>새팅 완료입니다. 이 정도 새팅은 이제 눈감고도 할 수 있겠죠? 제가 계속 반복해서 이걸 보여드리는 이유는, 그래야 쉬워지고 자연스럽게 되고 이해가 되거든요. 조금 지루해도 꼭 따라해주세요.</p>
+<p>div태그를 flexbox로 바꾸기 위해서는 <span class="attribute">display: flex</span>라고 정의를 내려주면 끝나요.</p>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div class="flex-div">
+
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="code-description">flexbox.html</div>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+...
+
+.flex-div {
+    display: flex;
+}
+    </code>
+</pre>
+<div class="code-description">flexbox.css</div>
+<div class="blog-space"></div>
+<p>위와 같이 새로운 div태그를 만들고 flex-div라는 클래스를 준 다음 <span class="attribute">display: flex</span>를 적용시켜 보세요.</p>
+<p>그렇게 한 다음 브라우저를 확인하니...아무 변화가 없어요. 네, 맞아요. 하지만 현재는 비어있는 저 div에 다른 HTML 요소들을 채우기 시작하면 바로 무슨 변화가 적용되었는지 이해될거에요.</p>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div class="flex-div">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="code-description">flexbox.html</div>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+...
+
+.flex-div {
+    display: flex;
+}
+
+.flex-item {
+    width: 2rem;
+    height: 2rem;
+    background: #6c5ce7;
+    margin: 0.5rem;
+}
+    </code>
+</pre>
+<div class="code-description">flexbox.css</div>
+<div class="blog-space"></div>
+<p>위와 같이 flex-div 클래스 div 안에 3개의 div태그를 만들고 모두 flex-item이라는 클래스명을 줄게요.</p>
+<p>그리고 그 flex-item들이 브라우저에서 보일 수 있게 넓이, 높이, 색상을 줬어요. 경계를 짓기 위해 margin도 적용시켰고요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content flexbox-prac-content">
+            <div class="flexbox-prac-1-browser">
+                <div class="flex-div">
+                    <div class="flex-item"></div>
+                    <div class="flex-item"></div>
+                    <div class="flex-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>어...어...! 😲 새로로 쌓인게 아니라 가로로 보내졌네요.</p>
+<p><span class="attribute">display: flex</span> 부분만 제외하고 브라우저를 확인해보세요. 그러면 그 차이를 바로 알거에요.</p>
+<p>이렇게 간단하게 div의 행동 방식을 (flex 컨테이너 형식으로) 바꾸는 어마어마한 CSS 속성이랍니다. 이것만으로 강력하지만, 여기서 더욱 많은 기능이 있어서 레이아웃계의 최강자라고 생각할 수 있어요.</p>
+<div class="blog-space"></div>
+<p class="with-background">Flexbox의 주요 기능들!</p>
+<div class="blog-space"></div>
+<p><em>여기서부터 배우게 될 CSS 속성들은 무조건 <span class="attribute">display: flex</span>가 설정되어 있어야지만 작동해요! 꼭 주의하세요!</em></p>
+<h3>flex-direction</h3>
+<p>flex-direction을 사용하면 main axis의 방향을 설정할 수 있어요. main axis란, flex 컨테이너의 방향을 얘기해요. 위에서 <span class="attribute">display: flex</span>를 설정해주면 flex 아이템들이 가로로 배치하게 되는걸 봤잖아요.</p>
+<p>이 축의 방향을 main axis라고 부르고, 원하는대로 변경할 수 있죠.</p>
+<p><span class="attribute">flex-direction: row;</span></p>
+<p><span class="attribute">flex-direction: column;</span></p>
+<p><span class="attribute">flex-direction: row-reverse;</span></p>
+<p><span class="attribute">flex-direction: column-reverse;</span></p>
+<p>이렇게 main axis의 방향은 행, 열, 역행, 역열의 방향으로 설정해줄 수 있어요.</p>
+<p>여기서 또 중요한 축이 하나 나오는데, 바로 cross axis에요. Cross axis는 어렵게 생각하지 마시고, main axis의 수직 관계라고 생각하면 되요. 만약 main axis가 가로였다면, cross axis는 새로축이 되는거죠.</p>
+<p>하나씩 확인해볼까요? 꼭 직접 쳐서 확인해보길 바랄게요.</p>
+<div class="code-container">
+    <div class="code-snippet">
+        <div class="browser-upper">
+            <div class="browser-btn close-btn"></div>
+            <div class="browser-btn minify-btn"></div>
+            <div class="browser-btn expand-btn"></div>
+        </div>
+        <div class="browser-content flexbox-prac-content">
+            <div class="flexbox-prac-1-browser flexible">
+                <div class="flex-div-1">
+                    <div class="flex-item blue"></div>
+                    <div class="flex-item purple"></div>
+                    <div class="flex-item green"></div>
+                </div>
+                <div class="flex-div-1-column">
+                    <div class="flex-item blue"></div>
+                    <div class="flex-item purple"></div>
+                    <div class="flex-item green"></div>
+                </div>
+                <div class="flex-div-1-row-reverse">
+                    <div class="flex-item blue"></div>
+                    <div class="flex-item purple"></div>
+                    <div class="flex-item green"></div>
+                </div>
+                <div class="flex-div-1-column-reverse">
+                    <div class="flex-item blue"></div>
+                    <div class="flex-item purple"></div>
+                    <div class="flex-item green"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>우선 결과부터 보여드릴게요. 첫번째 줄부터 시작해서 row, column, row-reverse, column-reverse를 적용시켜보고 각 구역별 구분을 더 잘 짓기 위해서 border-bottom을 추가했어요. 코드를 확인해볼게요.</p>
+<pre class="code-pre">
+    <code class="language-markup" style="font-size:1.4rem;">
+        <script type="prism-html-markup">
+<body>
+    <div class="flex-div row">
+        <div class="flex-item blue"></div>
+        <div class="flex-item purple"></div>
+        <div class="flex-item green"></div>
+    </div>
+    <div class="flex-div column">
+        <div class="flex-item blue"></div>
+        <div class="flex-item purple"></div>
+        <div class="flex-item green"></div>
+    </div>
+    <div class="flex-div row-reverse">
+        <div class="flex-item blue"></div>
+        <div class="flex-item purple"></div>
+        <div class="flex-item green"></div>
+    </div>
+    <div class="flex-div column-reverse">
+        <div class="flex-item blue"></div>
+        <div class="flex-item purple"></div>
+        <div class="flex-item green"></div>
+    </div>
+</body>
+        </script>
+    </code>
+</pre>
+<div class="code-description">flexbox.html</div>
+<div class="blog-space"></div>
+<pre class="code-pre">
+    <code class="language-css" style="font-size:1.4rem;">
+...
+
+.flex-div {
+    display: flex;
+    border-bottom: 1px solid #6c5ce7;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-item {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
+}
+
+.flex-item.blue {
+    background: #0984e3;
+}
+
+.flex-item.purple {
+    background: #6c5ce7;
+}
+
+.flex-item.green {
+    background: #00cec9;
+}
+    </code>
+</pre>
+<div class="code-description">flexbox.css</div>
+<div class="blog-space"></div>
+<p>복잡해 보이지만 사실은 되게 간단하죠? flex-div를 여러개 만들고 각각 flex-direction을 다르게 설정해줬어요. 그리고 flex 컨테이너 안의 아이템들이 어떻게 배치되는지 더 잘 보기 위해서 blue, purple, green 클래스를 만들어서 백그라운드 색상을 변경해줬어요.</p>
+<p>이 코드를 보니 flex-direction이 적용되는 원리를 이해하겠나요?</p>
+<h3>flex-wrap</h3>
+<p>이번에는 flex-wrap 속성에 대해서 배워볼게요.</p>
+
+
+<div class="coming-soon">Coming soon...</div>
