@@ -19,3 +19,7 @@ console.log(`서버가 http://${HOST}:${PORT} 에서 작동하고 있습니다.`
 app.get('/', (req, res) => {
   res.render('blog.html');
 });
+
+app.get('/qraft', (req, res) => {
+  res.render('qraft.html');
+});
