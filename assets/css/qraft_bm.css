@@ -257,12 +257,12 @@ button {
 .stats .description .others .other-btn {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 0.5rem;
 }
 
 .other-btn button {
     padding: 0.6rem 1rem;
     margin-right: 1rem;
+    margin-top: 1rem;
     background: var(--text);
     color: white;
     font-size: 1.5rem;
