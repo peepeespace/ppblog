@@ -111,6 +111,7 @@ const main = async () => {
                 if (d != 'portfolio123') {
                     factorSection = formatString(factorsHTML, [factorTags]);
                     subcategorySection += formatString(subcategoryHTML, ['', factorSection]);
+                    factorTags = '';
                 }
                 categorySection += formatString(categoryHTML, [key, subcategorySection]);
                 subcategorySection = '';
