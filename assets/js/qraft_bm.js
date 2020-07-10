@@ -1,4 +1,4 @@
-import '../css/qraft.css';
+import '../css/qraft_bm.css';
 import Axios from 'axios';
 
 const META = {

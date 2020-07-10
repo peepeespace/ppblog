@@ -24,6 +24,6 @@ app.get('/qraft', (req, res) => {
   res.render('qraft.html');
 });
 
-app.get('/qraft/bm_status', (req, res) => {
+app.get('/bm_status', (req, res) => {
   res.render('qraft_bm.html');
 });
