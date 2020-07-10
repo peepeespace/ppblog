@@ -248,6 +248,26 @@ button {
     font-size: 2rem;
 }
 
+.stats .description .others {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.stats .description .others .other-btn {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.other-btn button {
+    padding: 0.6rem 1rem;
+    margin-right: 1rem;
+    background: var(--text);
+    color: white;
+    font-size: 1.5rem;
+}
+
 .stats .description p:not(:last-child) {
     margin-bottom: 0.5rem;
 }

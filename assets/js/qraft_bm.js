@@ -48,6 +48,8 @@ const simDataHTML = `
 const dataDescURL = 'https://api.blended.kr/close_by_date/QRAFT_DATA_DESCRIPTION';
 const dataSimURL = 'https://api.blended.kr/close_by_date/QRAFT_DATA_SIMILARITY';
 
+const skipWords = ['N', 'O', 'E'];
+
 const getData = async (type) => {
     let data;
     if (type == 'desc') {
@@ -58,24 +60,49 @@ const getData = async (type) => {
     return data.data;
 };
 
-const main = async () => {
-    let data = await getData('sim');
-    let bmData = data['Portfolio123 & Qraft'];
+const drawSimSection = (data, dataType) => {
+    let bmData = data[dataType];
     let fullHTML = '';
     for (let data in bmData) {
         let colname = data;
         let simDataSection = '';
         for (let qraftData of bmData[data]) {
-            let compustatName = Object.keys(qraftData)[0].split('|')[0];
-            let simName = Object.keys(qraftData)[0].split('|')[1];
-            let simProb = (parseFloat(Object.values(qraftData)[0]) * 100).toFixed(2);
-            let simData = formatString(simDataHTML, [compustatName, simName, simProb]);
-            simDataSection += simData;
+            let simData;
+            if (dataType == 'Portfolio123 & Qraft') {
+                let compustatName = Object.keys(qraftData)[0].split('|')[0];
+                let simName = Object.keys(qraftData)[0].split('|')[1];
+                let simProb = (parseFloat(Object.values(qraftData)[0]) * 100).toFixed(2);
+                simData = formatString(simDataHTML, [compustatName, simName, simProb]);
+            } else {
+                let name = Object.keys(qraftData)[0];
+                let prob = (parseFloat(Object.values(qraftData)[0]) * 100).toFixed(2);
+                simData = formatString(simDataHTML, [name, '', prob]);
+            }
+            if (!(skipWords.includes(qraftData))) {
+                simDataSection += simData;
+            } else {
+                simDataSection += '';
+            }
         }
         fullHTML += formatString(portColHTML, [colname, simDataSection]);
     }
     const columns = document.getElementsByClassName('columns')[0];
     columns.innerHTML = fullHTML;
+}
+
+const main = async () => {
+    let data = await getData('sim');
+    drawSimSection(data, 'Portfolio123 & Qraft');
 };
 
 main();
+
+const applyOtherBtns = document.getElementsByClassName('apply-other-btn');
+for (let btn of applyOtherBtns) {
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        let dataType = btn.innerText;
+        let data = await getData('sim');
+        drawSimSection(data, dataType);
+    });
+}
