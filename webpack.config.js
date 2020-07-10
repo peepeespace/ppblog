@@ -9,7 +9,8 @@ module.exports = {
         index: ['@babel/polyfill', './assets/js/index.js'],
         tool: ['@babel/polyfill', './assets/js/tool.js'],
         history: ['@babel/polyfill', './assets/js/history.js'],
-        blog: ['@babel/polyfill', './assets/js/blog.js']
+        blog: ['@babel/polyfill', './assets/js/blog.js'],
+        qraft: ['@babel/polyfill', './assets/js/qraft.js']
     },
     devServer: {
         contentBase: './dist'
@@ -71,6 +72,11 @@ module.exports = {
       new HtmlWebpackPlugin({
         filename: 'blog.html',
         template: './templates/blog.html',
+        inject: false
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'qraft.html',
+        template: './templates/qraft.html',
         inject: false
       }),
       new MiniCssExtractPlugin({filename: '[name].min.css'})
